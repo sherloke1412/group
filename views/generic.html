@@ -1,0 +1,30 @@
+{{top_sidebar_enabled,botton_sidebar_enabled=False,('message' in globals())}}
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+{{if 'message' in globals():}}
+<h2>{{=message}}</h2>
+<p class="lead">{{=T('This is the basic imformation about you')}}</p> 
+  <li>{{=T('Name : ')}}</li>
+  <li>{{=T('Lecturer ID : ')}}</li>
+  <li>{{=T('Department : ')}}</li>
+  <li>{{=T('Subject : ')}}</li>
+  <li>{{=T('E-mail : ')}}</li>
+{{elif 'content' in globals():}}
+{{=content}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
+
+
+{{block right_sidebar}}
+<div>
+    <img class ="countain-fluid background" width="150" height="150">
+    </img>
+</div>
+{{end}}
+
+<!-- Edit Block -->
+{{block botton_sidebar}}
+    <a href="//127.0.0.1:8000/ProfilePage/default/edit" class="btn btn-info" role="button">{{=T("Edit Profile")}}</a>
+{{end}}
